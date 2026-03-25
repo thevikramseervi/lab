@@ -17,13 +17,13 @@ int|float|char|double|while|for|do|if|break|continue|void|switch|case|long|struc
 "/*"                      { comment = 1; }
 "*/"                      { comment = 0; cnt++; }
 
+\".*\"                    { if (!comment) printf("%s is a STRING\n", yytext); }
+
 {identifier}\(            { if (!comment) printf("Function %s\n", yytext); }
 \{                        { if (!comment) printf("BLOCK BEGINS\n"); }
 \}                        { if (!comment) printf("BLOCK ENDS\n"); }
 
 {identifier}(\[[0-9]*\])? { if (!comment) printf("%s is an IDENTIFIER\n", yytext); }
-
-\".*\"                    { if (!comment) printf("%s is a STRING\n", yytext); }
 
 [0-9]+(\.[0-9]+)?         { if (!comment) printf("%s is a NUMBER\n", yytext); }
 
