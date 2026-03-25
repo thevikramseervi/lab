@@ -103,8 +103,7 @@ void parse(char* str) {
             left = right;
         }
 
-        else if (isDelimiter(str[right]) && left != right ||
-                 (left != right && right == len)) {
+        else if (isDelimiter(str[right]) && left != right || (left != right && right == len)) {
             char* subStr = subString(str, left, right - 1);
 
             if (isKeyword(subStr))
