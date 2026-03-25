@@ -39,7 +39,7 @@ bool isKeyword(char* str) {
                         "short",    "typedef", "switch", "unsigned", "signed",
                         "void",     "static",  "struct", "goto"};
 
-    for (int i = 0; i < 24; ++i) {
+    for (int i = 0; i < sizeof(keywords) / sizeof(keywords[0]); ++i) {
         if (strcmp(str, keywords[i]) == 0) return true;
     }
     return false;
@@ -120,8 +120,7 @@ void parse(char* str) {
                 printf("'%s' IS A VALID IDENTIFIER\n", subStr);
 
             else
-                printf("'%s' IS NOT A VALID IDENTIFIER (LEXICAL ERROR)\n",
-                       subStr);
+                printf("'%s' IS NOT A VALID IDENTIFIER (LEXICAL ERROR)\n", subStr);
 
             left = right;
             free(subStr);
