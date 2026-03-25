@@ -28,7 +28,6 @@ bool validIdentifier(char* str) {
         if (!(isalpha(str[i]) || isdigit(str[i]) || str[i] == '_'))
             return false;
     }
-
     return true;
 }
 
